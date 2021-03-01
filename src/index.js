@@ -83,6 +83,37 @@ router.patch('/user', async (ctx) => {
   ctx.body = data;
 })
 
+router.get('/table-data', async(ctx) => {
+  await new Promise(function (res, rej) {
+    setTimeout(() => {
+      ctx.type = 'application/json';
+      ctx.body = [
+        {
+          id: 1,
+          name: 'ycc'
+        },
+        {
+          id: 2,
+          name: 'yu'
+        },
+        {
+          id: 2,
+          name: 'yu'
+        },
+        {
+          id: 2,
+          name: 'yu'
+        },
+        {
+          id: 2,
+          name: 'yu'
+        },
+      ]
+      res()
+    }, 50000);
+  })
+})
+
 app.use(KoaBody());
 app.use(router.routes());
 
